@@ -54,7 +54,8 @@ const bookmarks = (function() {
     //buttons for visiting link with a href
     //button for deleting
     const htmlTemplate = `
-    <li class="bookmark-item" data-item-id=${bookmark.id}>
+    <li class="bookmark-item 
+    js-bookmark-item" data-item-id=${bookmark.id}>
     <h2>${bookmark.title}</h2>
     <p>${bookmark.url}</p>
     <p>${bookmark.desc}</p>
@@ -83,13 +84,20 @@ const bookmarks = (function() {
 
   //function to retrieve bookmark.id from li
   // use to expand, modify, delete
-
+  function getDataID(bookmark) {
+    return $(bookmark)
+      .closest('js-bookmark-item')
+      .attr('data-item-id');
+  }
+  function handleDeleteBookmark() {}
   //user input, update store, render
 
   return {
     bindEventListeners,
     render,
     //temporarily expose
-    generateStars
+    generateStars,
+    getDataID,
+    handleDeleteBookmark
   };
 })();
