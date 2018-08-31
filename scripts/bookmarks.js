@@ -38,10 +38,7 @@ const bookmarks = (function() {
           store.addBookmark(newBookmark);
           render();
         },
-        error => {
-          console.log(error);
-          render();
-        }
+        errorCall
       );
     });
   }
@@ -137,11 +134,15 @@ const bookmarks = (function() {
 
           render();
         },
-        error => console.log('error')
+        errorCall
       );
     });
   }
   //user input, update store, render
+
+  const errorCall = function(message) {
+    alert(message.responseJSON.message);
+  };
 
   return {
     bindEventListeners,
