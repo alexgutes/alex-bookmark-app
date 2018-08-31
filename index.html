@@ -14,13 +14,13 @@
   <div class="container">
     <h1>Bookmark Manager</h1>
     <button id="js-new-bookmark">Add Bookmark</button>
-    <select name="rating">
-      <option value="rating">Minimum Rating</option>
-      <option value="5-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
-      <option value="4-stars">&#9733; &#9733; &#9733; &#9733; </option>
-      <option value="3-stars">&#9733; &#9733; &#9733; </option>
-      <option value="2-stars">&#9733; &#9733; </option>
-      <option value="1-stars">&#9733; </option>
+    <select id="js-rating" name="rating">
+      <option value="0">Minimum Rating</option>
+      <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+      <option value="4">&#9733; &#9733; &#9733; &#9733; </option>
+      <option value="3">&#9733; &#9733; &#9733; </option>
+      <option value="2">&#9733; &#9733; </option>
+      <option value="1">&#9733; </option>
     </select>
 
     <div class="add-item-container" id="js-add-item-container">
@@ -28,7 +28,13 @@
         <input name="title" id="title" type="text" placeholder="Title">
         <input name="url" id="link" type="text" placeholder="www.example.com">
         <input name="desc" id="description" type="text" placeholder="Description">
-        <span>&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+        <select name="rating">
+          <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+          <option value="4">&#9733; &#9733; &#9733; &#9733; </option>
+          <option value="3">&#9733; &#9733; &#9733; </option>
+          <option value="2">&#9733; &#9733; </option>
+          <option value="1">&#9733; </option>
+        </select>
         <button id="submit" type="submit">submit</button>
       </form>
 
@@ -36,10 +42,6 @@
 
     <div class="bookmark-list">
       <ul class=" js-bookmark-list">
-        <li class="bookmark-item">
-          <h2>Bookmark Title</h2>
-          <span>&#9733; &#9733; &#9733; &#9733; &#9733;</span>
-        </li>
       </ul>
     </div>
   </div>

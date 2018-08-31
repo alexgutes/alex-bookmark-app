@@ -3,6 +3,8 @@ const bookmarks = (function() {
     handleCreateBookmarkClicked();
     handleAddBookmarkSubmit();
     handleDeleteBookmark();
+    handleExpandedView();
+    handleFilterChange();
   }
 
   //to-do
@@ -44,7 +46,11 @@ const bookmarks = (function() {
 
   // to-do
   function render() {
-    const bookmarks = store.bookmarks;
+    let bookmarks = store.bookmarks;
+    if (store.filter > 0) {
+      bookmarks = store.filterBookmarksArray();
+    }
+    // const filteredArray = store.filterBookmarksArray();
 
     $('ul.js-bookmark-list').html(bookmarks.map(generateListItemTemplate));
   }
@@ -55,15 +61,23 @@ const bookmarks = (function() {
   function generateListItemTemplate(bookmark) {
     //buttons for visiting link with a href
     //button for deleting
+    let expanded = bookmark.expanded;
+    if (expanded) {
+      expanded = '';
+    } else {
+      expanded = 'hidden';
+    }
     const htmlTemplate = `
     <li class="bookmark-item 
     js-bookmark-item" data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
+    <span>${generateStars(bookmark.rating)}</span>
+    <div class="${expanded}" >
     <p>${bookmark.url}</p>
     <p>${bookmark.desc}</p>
-    <span>${generateStars(bookmark.rating)}</span>
     <button id="visit">Visit Site</button>
     <button id="delete">Delete</button>
+    </div>
     </li>`;
 
     return htmlTemplate;
@@ -81,8 +95,24 @@ const bookmarks = (function() {
     starsArray.push('&#9733;');
   }
 
+  function handleFilterChange() {
+    $('#js-rating').change(event => {
+      console.log('select clicked');
+      const selectedValue = $('#js-rating').val();
+      store.updateRating(selectedValue);
+      render();
+    });
+  }
   //function to handle expanded view
   // put listener on li
+  function handleExpandedView() {
+    $('.js-bookmark-list').on('click', '.js-bookmark-item', event => {
+      console.log('li clicked');
+      const bookmarkID = getDataID(event.currentTarget);
+      store.toggleExpandedStatus(bookmarkID);
+      render();
+    });
+  }
 
   //function to retrieve bookmark.id from li
   // use to expand, modify, delete

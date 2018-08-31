@@ -14,7 +14,7 @@
   <div class="container">
     <h1>Bookmark Manager</h1>
     <button>Add Bookmark</button>
-    <select name="rating">
+    <select name="sort-rating">
       <option value="rating">Minimum Rating</option>
       <option value="5-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
       <option value="4-stars">&#9733; &#9733; &#9733; &#9733; </option>

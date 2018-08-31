@@ -1,6 +1,10 @@
 const store = (function() {
   const addBookmark = function(bookmark) {
-    this.bookmarks.push(bookmark);
+    // set expanded to false
+    const ifExpanded = {
+      expanded: false
+    };
+    this.bookmarks.push(Object.assign(bookmark, ifExpanded));
   };
   // expanded: null,
   // filter: null,
@@ -44,29 +48,36 @@ const store = (function() {
   }
 
   // updating rating filters (rating)
-  function updateRating(rating) {}
-
-  function filterBookmarks() {
-    //call filter store.filter
-    //for every bookmark filter if rating greater than this.filter
+  function updateRating(rating) {
+    this.filter = parseInt(rating);
   }
 
-  function toggleExpandedStatus(id) {
-    // set expanded status when clicked
+  function filterBookmarksArray() {
+    console.log(this.filter);
+    return this.bookmarks.filter(bookmark => {
+      console.log(bookmark.rating);
+      return bookmark.rating >= this.filter;
+    });
   }
 
-  function setRatingFilter(rating) {
-    // filter page results by rating
+  // set expanded status when clicked
+  function toggleExpandedStatus(bookmarkID) {
+    const bookmarkToggle = this.bookmarks.find(
+      bookmark => bookmark.id === bookmarkID
+    );
+    bookmarkToggle.expanded = !bookmarkToggle.expanded;
   }
 
   return {
     bookmarks: [],
     addBookmark,
-    filter: 0,
     addingStatus: false,
     findByID,
     setAddingStatus,
     deleteBookmark,
-    updateRating
+    updateRating,
+    toggleExpandedStatus,
+    filterBookmarksArray,
+    filter: 0
   };
 })();
