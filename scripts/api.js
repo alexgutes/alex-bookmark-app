@@ -1,4 +1,4 @@
-const Api = function() {
+const api = function() {
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/alex';
 
   function getBookmarks(callback) {
@@ -18,8 +18,29 @@ const Api = function() {
     });
   }
 
+  function updateBookmark(id, updateObj, callback) {
+    $.ajax({
+      url: `${BASE_URL}/bookmarks/${id}`,
+      method: 'PATCH',
+      contentType: 'application/json',
+      data: JSON.stringify(updateObj),
+      success: callback
+    });
+  }
+
+  function deleteBookmark(id, callback, errorCall) {
+    $.ajax({
+      url: `${BASE_URL}/bookmarks/${id}`,
+      method: 'DELETE',
+      success: callback,
+      error: errorCall
+    });
+  }
+
   return {
     getBookmarks,
-    postBookmark
+    postBookmark,
+    deleteBookmark,
+    updateBookmark
   };
 };

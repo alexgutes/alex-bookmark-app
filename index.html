@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="styles/index.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <title>Bookmark Project</title>
 </head>
@@ -13,7 +13,7 @@
 <body>
   <div class="container">
     <h1>Bookmark Manager</h1>
-    <button>Add Bookmark</button>
+    <button id="js-create-bookmark">Add Bookmark</button>
     <select name="rating">
       <option value="rating">Minimum Rating</option>
       <option value="5-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
@@ -23,15 +23,31 @@
       <option value="1-stars">&#9733; </option>
     </select>
 
-    <ul class="bookmark-list js-bookmark-list">
-      <li class="bookmark-item">
-        <h2>Bookmark Title</h2>
+    <div class="add-item-container" id="js-add-item-container">
+      <form id="add-item-form">
+        <input id="title" type="text" placeholder="Title">
+        <input id="link" type="text" placeholder="www.example.com">
+        <input id="description" type="text" placeholder="Description">
         <span>&#9733; &#9733; &#9733; &#9733; &#9733;</span>
-      </li>
-    </ul>
+        <button id="submit" type="submit">submit</button>
+      </form>
+
+    </div>
+
+    <div class="bookmark-list">
+      <ul class=" js-bookmark-list">
+        <li class="bookmark-item">
+          <h2>Bookmark Title</h2>
+          <span>&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+        </li>
+      </ul>
+    </div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="index.js"></script>
+  <script src="scripts/store.js"></script>
+  <script src="scripts/bookmarks.js"></script>
+  <script src="scripts/api.js"></script>
+  <script src="scripts/index.js"></script>
 </body>
 
 </html>

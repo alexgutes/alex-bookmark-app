@@ -17,11 +17,11 @@ button:hover {
   margin: 0 auto;
 }
 
-.bookmark-list {
+.js-bookmark-list {
   list-style: none;
   padding-left: 0;
 }
-.bookmark-list > li {
+.js-bookmark-list > li {
   margin-bottom: 20px;
   border: 1px solid grey;
   padding: 20px;
