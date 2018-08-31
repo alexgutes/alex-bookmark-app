@@ -6,13 +6,13 @@ const api = (function() {
   }
 
   function postBookmark(bookmarkObj, callback, errorCall) {
-    const bookmarkData = JSON.stringify(bookmarkObj);
+    // const bookmarkData = JSON.stringify(bookmarkObj);
 
     $.ajax({
       url: `${BASE_URL}/bookmarks`,
       method: 'POST',
       contentType: 'application/json',
-      data: bookmarkData,
+      data: bookmarkObj,
       success: callback,
       error: errorCall
     });

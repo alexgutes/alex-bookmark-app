@@ -2,6 +2,7 @@ const bookmarks = (function() {
   function bindEventListeners() {
     handleCreateBookmarkClicked();
     handleAddBookmarkSubmit();
+    handleDeleteBookmark();
   }
 
   //to-do
@@ -25,6 +26,7 @@ const bookmarks = (function() {
       event.preventDefault();
 
       const bookmarkData = $(event.target).serializeJSON();
+      console.log(bookmarkData);
 
       api.postBookmark(
         bookmarkData,
@@ -55,7 +57,7 @@ const bookmarks = (function() {
     //button for deleting
     const htmlTemplate = `
     <li class="bookmark-item 
-    js-bookmark-item" data-item-id=${bookmark.id}>
+    js-bookmark-item" data-item-id="${bookmark.id}">
     <h2>${bookmark.title}</h2>
     <p>${bookmark.url}</p>
     <p>${bookmark.desc}</p>
@@ -85,11 +87,28 @@ const bookmarks = (function() {
   //function to retrieve bookmark.id from li
   // use to expand, modify, delete
   function getDataID(bookmark) {
+    console.log(bookmark);
+
     return $(bookmark)
-      .closest('js-bookmark-item')
-      .attr('data-item-id');
+      .closest('.js-bookmark-item')
+      .data('item-id');
   }
-  function handleDeleteBookmark() {}
+  function handleDeleteBookmark() {
+    $('.js-bookmark-list').on('click', '#delete', event => {
+      const bookmarkID = getDataID(event.currentTarget);
+      console.log('delete clicked');
+      console.log(bookmarkID);
+      api.deleteBookmark(
+        bookmarkID,
+        () => {
+          store.deleteBookmark(bookmarkID);
+
+          render();
+        },
+        error => console.log('error')
+      );
+    });
+  }
   //user input, update store, render
 
   return {
@@ -97,7 +116,6 @@ const bookmarks = (function() {
     render,
     //temporarily expose
     generateStars,
-    getDataID,
-    handleDeleteBookmark
+    getDataID
   };
 })();

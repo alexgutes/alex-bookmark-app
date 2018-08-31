@@ -25,17 +25,22 @@
 
     <div class="add-item-fields">
       <input id="title" type="text" placeholder="Title">
-      <input id="link" type="text" placeholder="www.example.com">
-      <input id="description" type="text" placeholder="Description">
-      <span>&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+      <input id="url" type="text" placeholder="www.example.com">
+      <input id="desc" type="text" placeholder="Description">
+      <select id="rating">
+        <option value="rating">Minimum Rating</option>
+        <option value="5-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+        <option value="4-stars">&#9733; &#9733; &#9733; &#9733; </option>
+        <option value="3-stars">&#9733; &#9733; &#9733; </option>
+        <option value="2-stars">&#9733; &#9733; </option>
+        <option value="1-stars">&#9733; </option>
+      </select>
       <button id="submit" type="submit">submit</button>
 
     </div>
 
     <ul class="bookmark-list js-bookmark-list">
       <li class="bookmark-item">
-        <h2>Bookmark Title</h2>
-        <span>&#9733; &#9733; &#9733; &#9733; &#9733;</span>
       </li>
     </ul>
   </div>
