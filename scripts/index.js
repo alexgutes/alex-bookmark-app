@@ -1,3 +1,5 @@
+/* global $, api, bookmarks, store */
+
 console.log('index.js loaded');
 
 $(document).ready(function() {

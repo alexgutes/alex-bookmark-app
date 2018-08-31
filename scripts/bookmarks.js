@@ -1,3 +1,5 @@
+/* global $, api, bookmarks, store */
+
 const bookmarks = (function() {
   function bindEventListeners() {
     handleCreateBookmarkClicked();
