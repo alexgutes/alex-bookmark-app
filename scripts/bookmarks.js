@@ -1,4 +1,4 @@
-const bookmarks = function() {
+const bookmarks = (function() {
   function bindEventListeners() {
     handleCreateBookmarkClicked();
     handleAddBookmarkSubmit();
@@ -42,11 +42,54 @@ const bookmarks = function() {
 
   // to-do
   function render() {
-    return null;
+    const bookmarks = store.bookmarks;
+
+    $('ul.js-bookmark-list').html(bookmarks.map(generateListItemTemplate));
   }
+  //function for loop to determine stars
+  // take in rating run for loop
+  //function generatestars(rating)
+  // second generates one star
+  function generateListItemTemplate(bookmark) {
+    //buttons for visiting link with a href
+    //button for deleting
+    const htmlTemplate = `
+    <li class="bookmark-item" data-item-id=${bookmark.id}>
+    <h2>${bookmark.title}</h2>
+    <p>${bookmark.url}</p>
+    <p>${bookmark.desc}</p>
+    <span>${generateStars(bookmark.rating)}</span>
+    <button id="visit">Visit Site</button>
+    <button id="delete">Delete</button>
+    </li>`;
+
+    return htmlTemplate;
+  }
+
+  function generateStars(rating) {
+    const starsArray = [];
+    for (let i = 0; i < rating; i++) {
+      generateSingleStar(starsArray);
+    }
+    return starsArray.join(' ');
+  }
+
+  function generateSingleStar(starsArray) {
+    starsArray.push('&#9733;');
+  }
+
+  //function to handle expanded view
+  // put listener on li
+
+  //function to retrieve bookmark.id from li
+  // use to expand, modify, delete
+
+  //user input, update store, render
 
   return {
     bindEventListeners,
-    render
+    render,
+    //temporarily expose
+    generateStars
   };
-};
+})();

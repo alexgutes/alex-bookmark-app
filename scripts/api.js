@@ -1,4 +1,4 @@
-const api = function() {
+const api = (function() {
   const BASE_URL = 'https://thinkful-list-api.herokuapp.com/alex';
 
   function getBookmarks(callback) {
@@ -43,4 +43,4 @@ const api = function() {
     deleteBookmark,
     updateBookmark
   };
-};
+})();
