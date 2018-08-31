@@ -1,6 +1,6 @@
 console.log('index.js loaded');
 
-$(function() {
+$(document).ready(function() {
   console.log('DOM ready');
   bookmarks.bindEventListeners();
   bookmarks.render();
