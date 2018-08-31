@@ -74,8 +74,8 @@ const bookmarks = (function() {
     <div class="${expanded}" >
     <p>${bookmark.url}</p>
     <p>${bookmark.desc}</p>
-    <button id="visit">Visit Site</button>
-    <button id="delete">Delete</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="visit">Visit Site</button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="delete">Delete</button>
     </div>
     </li>`;
 

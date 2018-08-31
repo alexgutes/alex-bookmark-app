@@ -7,15 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="styles/index.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <title>Bookmark Project</title>
 </head>
 
 <body>
   <div class="container">
     <h1>Bookmark Manager</h1>
-    <button id="js-new-bookmark">Add Bookmark</button>
     <select id="js-rating" name="rating">
-      <option value="0">Minimum Rating</option>
+      <option value="0">Sort by Rating</option>
       <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
       <option value="4">&#9733; &#9733; &#9733; &#9733; </option>
       <option value="3">&#9733; &#9733; &#9733; </option>
@@ -35,7 +36,7 @@
           <option value="2">&#9733; &#9733; </option>
           <option value="1">&#9733; </option>
         </select>
-        <button id="submit" type="submit">submit</button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submit" type="submit">submit</button>
       </form>
 
     </div>
@@ -46,6 +47,7 @@
     </div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <script src="scripts/store.js"></script>
   <script src="scripts/bookmarks.js"></script>
   <script src="scripts/api.js"></script>

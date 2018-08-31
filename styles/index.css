@@ -23,13 +23,13 @@ button:hover {
 }
 .js-bookmark-list > li {
   margin-bottom: 20px;
-  border: 1px solid grey;
+  border: 1px solid black;
   padding: 20px;
 }
 
 .bookmark-item {
   display: block;
-  color: grey;
+  color: black;
   font-style: italic;
   font-size: 20px;
   margin-bottom: 15px;
