@@ -9,35 +9,58 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-  <title>Bookmark Project</title>
+  <title>Bookmark Manager</title>
 </head>
 
 <body>
   <div class="container">
     <h1>Bookmark Manager</h1>
-    <select id="js-rating" name="rating">
-      <option value="0">Sort by Rating</option>
-      <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
-      <option value="4">&#9733; &#9733; &#9733; &#9733; </option>
-      <option value="3">&#9733; &#9733; &#9733; </option>
-      <option value="2">&#9733; &#9733; </option>
-      <option value="1">&#9733; </option>
-    </select>
+
+
+
+
 
     <div class="add-item-container" id="js-add-item-container">
-      <form id="add-item-form">
-        <input name="title" id="title" type="text" placeholder="Title">
-        <input name="url" id="link" type="text" placeholder="www.example.com">
-        <input name="desc" id="description" type="text" placeholder="Description">
-        <select name="rating">
+      <form id="add-item-form" action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" name="title" id="title" type="text" placeholder="Title">
+          <label class="mdl-textfield__label" for="title">Title</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" name="url" id="link" type="text" placeholder="www.example.com">
+          <label class="mdl-textfield__label" for="url">URL</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" name="desc" id="description" type="text" placeholder="Description">
+          <label class="mdl-textfield__label" for="desc">Description</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <select class="mdl-textfield__input" name="rating">
+            <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
+            <option value="4">&#9733; &#9733; &#9733; &#9733; </option>
+            <option value="3">&#9733; &#9733; &#9733; </option>
+            <option value="2">&#9733; &#9733; </option>
+            <option value="1">&#9733; </option>
+          </select>
+          <label class="mdl-textfield__label" for="rating">Rating</label>
+        </div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submit" type="submit">ADD
+          BOOKMARK
+        </button>
+      </form>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <select class="mdl-textfield__input" id="js-rating" name="rating">
+          <!-- <option value="0">Sort by Rating</option> -->
+          <option value="0">Default</option>
           <option value="5">&#9733; &#9733; &#9733; &#9733; &#9733;</option>
           <option value="4">&#9733; &#9733; &#9733; &#9733; </option>
           <option value="3">&#9733; &#9733; &#9733; </option>
           <option value="2">&#9733; &#9733; </option>
           <option value="1">&#9733; </option>
         </select>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submit" type="submit">submit</button>
-      </form>
+        <label class="mdl-textfield__label" for="rating">Filter by Rating</label>
+      </div>
 
     </div>
 
